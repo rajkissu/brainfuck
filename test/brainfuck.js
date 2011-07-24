@@ -2,7 +2,7 @@
 
 var vows        = require('vows'),
     assert      = require('assert'),
-    brainfuck   = require('../index.js');
+    brainfuck   = require('../lib/brainfuck.js');
 
 /**
  * Brainfuck mock object
