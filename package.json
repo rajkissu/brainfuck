@@ -3,8 +3,8 @@
   "name": "brainfuck",
   "description": "A Brainfuck interpreter running on node.js",
   "keywords": "brainfuck",
-  "version": "1.0.1",
-  "homepage": "http://github.com/rajkissu/brainfuck",
+  "version": "1.0.2",
+  "homepage": "http://www.martialcoder.com",
   "repository": {
     "type": "git",
     "url": "git://github.com/rajkissu/brainfuck.git"

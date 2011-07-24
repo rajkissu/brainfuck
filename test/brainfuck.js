@@ -36,7 +36,7 @@ function parse(mock) {
  * assert current pointer state
  */
 function assertPointer(expected) {
-    return function testPointer(err, compiled) {
+    return function testPointer(err, output) {
         assert.isNull(err); // no errors
         assert.strictEqual(this.pointer, expected); // actual pointer position equals expected
     };
@@ -46,7 +46,7 @@ function assertPointer(expected) {
  * strict equal assert of current memory value expected value
  */
 function assertValue(expected) {
-    return function testValue(err, compiled) {
+    return function testValue(err, output) {
         assert.isNull(err); // no errors
         assert.strictEqual(this.data[this.pointer], expected); // actual value equals expected
     };
@@ -56,9 +56,9 @@ function assertValue(expected) {
  * strict equal assert of last output and expected value
  */
 function assertOutput(expected) {
-    return function testIO(err, compiled) {
+    return function testIO(err, output) {
         assert.isNull(err); // no errors
-        assert.strictEqual(compiled, expected); // last actual ouput equals expected
+        assert.strictEqual(output, expected); // last actual ouput equals expected
     };
 }
 
@@ -66,7 +66,7 @@ function assertOutput(expected) {
  * strict equal assert of last input and expected value
  */
 function assertInput(expected) {
-    return function testIO(err, compiled) {
+    return function testIO(err, output) {
         assert.isNull(err); // no errors
         assert.strictEqual(this._input, expected); // last actual input equals expected
     };
@@ -137,7 +137,7 @@ vows.describe('Brainfuck')
     .addBatch({ 'GIVEN a string ">><"' : pointerVows('>><', 1) })
     .addBatch({ 'GIVEN a string "+"' : valueVows('+', 1) })
     .addBatch({ 'GIVEN a string "++--"' : valueVows('++-', 1) })
-    .addBatch({ 'GIVEN a string "[----]"' : valueVows('[----]', 0) })
+    .addBatch({ 'GIVEN a string "+[[[[-]]]]+++"' : valueVows('+[[[[-]]]]+++', 3) })
     .addBatch({ 'GIVEN a string ">+++++++++[<++++++++>-]<"' : loopVows('>+++++++++[<++++++++>-]<', 72) })
     .addBatch({ 'GIVEN a string ">+++++++++[<++++++++>-]<."' : outputVows('>+++++++++[<++++++++>-]<.', 'H') })
     .addBatch({ 'GIVEN a string ","' : inputVows(',', 'H') })
