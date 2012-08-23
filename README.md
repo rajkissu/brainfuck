@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/rajkissu/brainfuck.png)](http://travis-ci.org/rajkissu/brainfuck)
 # Brainfuck
 
 A Brainfuck interpreter that runs on node.js!
